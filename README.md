@@ -1,3 +1,3 @@
-# ServiceNow pagerduty exporter
+# ServiceNow prometheus exporter
 
 WIP
