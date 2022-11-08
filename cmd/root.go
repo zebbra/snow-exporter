@@ -125,7 +125,7 @@ var rootCmd = &cobra.Command{
 
 			if errorCounter.Get() > int64(max) {
 				w.WriteHeader(500)
-				_, _ = w.Write([]byte("Unhealthy"))
+				fmt.Fprint(w, "Unhealthy")
 				return
 			}
 
