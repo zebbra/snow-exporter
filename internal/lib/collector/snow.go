@@ -26,7 +26,7 @@ func (c *SNOWCollector) Run(ctx context.Context) error {
 
 	if err != nil {
 		c.Logger.Errorw(
-			"Error fetching device list",
+			"Error fetching incident list",
 			"error", err,
 		)
 
