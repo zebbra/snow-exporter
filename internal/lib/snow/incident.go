@@ -33,6 +33,15 @@ type Incident struct {
 	Location         string `json:"location"`
 	State            string `json:"state"`
 	AssignedTo       string `json:"assigned_to"`
+	SysUpdatedOn     string `json:"sys_updated_on"`
+}
+
+func (i Incident) ModifiedAt() string {
+	if i.SysUpdatedOn == "" {
+		return i.OpenedAt
+	}
+
+	return i.SysUpdatedOn
 }
 
 type IncidentList struct {
