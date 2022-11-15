@@ -7,7 +7,7 @@ import (
 func (c *Client) Incident(ctx context.Context) ([]Incident, error) {
 	resp, err := c.Fetch(
 		ctx,
-		"/api/now/table/incident?sysparm_limit=500&sysparm_query=active=true^ORDERBYDESCsys_created_on&sysparm_display_value=true&sysparm_exclude_reference_link=true&sysparm_fields=sys_id,number,state,priority,short_description,description,caller_id,opened_at,closed_at,resolved_by,location,service_offeringclose_notes,child_incidents,assigned_to,sys_updated_on",
+		"/api/now/table/incident?sysparm_limit=500&sysparm_query=active=true^ORDERBYDESCsys_created_on&sysparm_display_value=true&sysparm_exclude_reference_link=true&sysparm_fields=sys_id,number,state,priority,short_description,description,caller_id,opened_at,closed_at,resolved_by,location,service_offeringclose_notes,child_incidents,assigned_to,assignment_group,sys_updated_on",
 		&IncidentList{},
 	)
 
@@ -33,6 +33,7 @@ type Incident struct {
 	Location         string `json:"location"`
 	State            string `json:"state"`
 	AssignedTo       string `json:"assigned_to"`
+	AssignmentGroup  string `json:"assignment_group"`
 	SysUpdatedOn     string `json:"sys_updated_on"`
 }
 

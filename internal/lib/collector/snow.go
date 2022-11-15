@@ -75,7 +75,7 @@ func (c *SNOWCollector) Collect(ch chan<- prometheus.Metric) {
 			prometheus.NewDesc(
 				"snow_incident_info",
 				"Info about a SNOW incident",
-				[]string{"ShortDescription", "ClosedAt", "ClosedAtUnix", "Description", "Priority", "ChildIncidents", "SysId", "Number", "OpenedAt", "OpenedAtUnix", "ResolvedBy", "CallerId", "Location", "State", "AssignedTo", "ModifiedAt", "ModifiedAtUnix"},
+				[]string{"ShortDescription", "ClosedAt", "ClosedAtUnix", "Description", "Priority", "ChildIncidents", "SysId", "Number", "OpenedAt", "OpenedAtUnix", "ResolvedBy", "CallerId", "Location", "State", "AssignedTo", "AssignmentGroup", "ModifiedAt", "ModifiedAtUnix"},
 				nil,
 			),
 			prometheus.GaugeValue,
@@ -95,6 +95,7 @@ func (c *SNOWCollector) Collect(ch chan<- prometheus.Metric) {
 			i.Location,
 			i.State,
 			i.AssignedTo,
+			i.AssignmentGroup,
 			i.ModifiedAt(),
 			snow.ToUnixString(i.ModifiedAt()),
 		)
